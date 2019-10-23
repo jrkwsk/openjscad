@@ -1,0 +1,63 @@
+function main () {
+ let base = sphere ({r: 5});
+ let mouth = cube ({size: 10, center: true});
+ 
+ mouth = rotate([0,45,0], mouth);
+ mouth = translate([8,0,0], mouth);
+ 
+ let pacman = difference(base, mouth);
+ 
+ let eye1 = sphere({r:0.5});
+ eye1=translate([3,3,3], eye1);
+ 
+ let eye2 = sphere({r:0.5});
+ eye2=translate([3,-3,3], eye2);
+ 
+ return [pacman, eye1, eye2];
+}
+
+/////
+
+
+function main () {
+ let base = sphere ({r: 5});
+ let mouth = cube ({size: 10, center: true});
+ 
+ mouth = rotate([0,45,0], mouth);
+ mouth = translate([8,0,0], mouth);
+ 
+ mouth = scale([2,1,1], mouth)
+ 
+ let pacman = difference(base, mouth);
+ 
+ let eye1 = sphere({r:0.5});
+ eye1=translate([3,3,3], eye1);
+ 
+ let eye2 = sphere({r:0.5});
+ eye2=translate([3,-3,3], eye2);
+ 
+ return [pacman];
+}
+
+////
+
+function main () {
+let star = polygon([
+    [0,-1],
+    [3,-3],
+    [2,0],
+    [4,2],
+    [1,2],
+    [0,5],
+    [-1,2],
+    [-4,2],
+    [-2,0],
+    [-3,-3]
+    ]);
+
+star = linear_extrude({height: 5}, star);
+star = color ("Blue", star);
+ 
+ return [star];
+}
+ 
